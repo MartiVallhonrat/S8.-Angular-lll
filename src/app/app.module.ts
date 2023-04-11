@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { StarshipsComponent } from './starships/starships.component';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'
 
 const appRoutes: Routes = [
   {path: "", redirectTo: '/home', pathMatch: 'full'},
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     NgbModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

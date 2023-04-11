@@ -1,1 +1,6 @@
-<p>starships works!</p>
+<div>
+    <div *ngFor="let starship of starshipList" class="containerList">
+        <p>{{starship.name.toUpperCase()}}</p>
+        <p>{{starship.model}}</p>
+    </div>
+</div>
