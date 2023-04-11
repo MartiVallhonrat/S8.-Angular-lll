@@ -1,7 +1,7 @@
 .container {
     background-color: black;
     color: white;
-    height: 100%;
+    min-height: 100%;
     min-width: 100%;
     padding: 30px;
     gap: 50px;

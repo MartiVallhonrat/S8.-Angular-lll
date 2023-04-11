@@ -9,11 +9,19 @@ import { StarshipsServiceService } from '../starships-service.service';
 export class StarshipsComponent {
 
   public starshipList:any;
+  public counter: number = 2;
 
   constructor(private _starshipservice: StarshipsServiceService){}
 
   ngOnInit() {
     this._starshipservice.getStarships()
       .subscribe(data => this.starshipList = data.results);
+  }
+
+  renderStarships() {
+    this._starshipservice.getNewStarships(this.counter)
+      .subscribe(data => this.starshipList = this.starshipList.concat(data.results));
+
+    this.counter = this.counter + 1;
   }
 }

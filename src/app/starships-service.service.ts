@@ -15,4 +15,7 @@ export class StarshipsServiceService {
   getStarships(): Observable<StarshipList> {
     return this.http.get<StarshipList>(this._url);
   }
+  getNewStarships(counter: number): Observable<StarshipList> {
+    return this.http.get<StarshipList>(`https://swapi.dev/api/starships?page=${counter}`);
+  }
 }
