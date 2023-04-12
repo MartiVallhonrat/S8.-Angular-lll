@@ -1,7 +1,9 @@
 <div class="container">
-    <div *ngFor="let starship of starshipList" class="containerList p-3 bg-dark rounded">
-        <h3>{{starship.name.toUpperCase()}}</h3>
-        <p class="starshipModel">{{starship.model}}</p>
+    <div *ngFor="let starship of starshipList" class="containerList p-3 mx-5 bg-dark rounded">
+        <div [routerLink]="['/starship-info', starship.name]">
+            <h3>{{starship.name.toUpperCase()}}</h3>
+            <p class="starshipModel">{{starship.model}}</p>
+        </div>
     </div>
     <button *ngIf="counter !== 5" class="mt-3 btn btn-primary btn-lg" (click)="renderStarships()">View More</button>
 </div>

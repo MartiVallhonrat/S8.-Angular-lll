@@ -6,19 +6,22 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { StarshipsComponent } from './starships/starships.component';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { StarshipInfoComponent } from './starship-info/starship-info.component';
 
 const appRoutes: Routes = [
   {path: "", redirectTo: '/home', pathMatch: 'full'},
   {path: "home", component: HomeComponent},
-  {path: "starships", component: StarshipsComponent}
+  {path: "starships", component: StarshipsComponent},
+  {path:"starship-info/:name", component: StarshipInfoComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    StarshipsComponent
+    StarshipsComponent,
+    StarshipInfoComponent,
   ],
   imports: [
     BrowserModule,
