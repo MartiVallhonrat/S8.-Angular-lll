@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { StarshipList } from './interfaces/starships';
-import { Observable } from 'rxjs';
+import { Observable, concat } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
