@@ -1,2 +1,23 @@
-<p>starship-info works!</p>
-<p>{{this.starshipResults | json}}</p>
+<div class="container">
+    <h1 class="containertext text-center"><strong>{{foundStarship.name.toUpperCase()}}</strong></h1>
+    <div class="containertext text-center">
+        <h3>MODEL: <span class="textsecondary">{{foundStarship.model.toUpperCase()}}</span></h3>
+        <h3>STARSHIP CLASS: <span class="textsecondary">{{foundStarship.starship_class.toUpperCase()}}</span></h3>
+        <h3>MANUFACTURER: <span class="textsecondary">{{foundStarship.manufacturer.toUpperCase()}}</span></h3>
+        <h3>COST: <span class="textsecondary">{{foundStarship.cost_in_credits.toUpperCase()}}</span></h3>
+    </div>
+    <div class="d-flex justify-content-center gap-2">
+        <div class="containertext flex-grow-1">
+            <h3>CREW: <span class="textsecondary">{{foundStarship.crew}}</span></h3>
+            <h3>PASSANGER CAPACITY: <span class="textsecondary">{{foundStarship.passengers}}</span></h3>
+            <h3>CARGO CAPACITY: <span class="textsecondary">{{foundStarship.cargo_capacity}} TONS</span></h3>
+            <h3>CONSUMABLES: <span class="textsecondary">{{foundStarship.consumables.toUpperCase()}}</span></h3>
+        </div>
+        <div class="containertext flex-grow-1">
+            <h3>LENGTH: <span class="textsecondary">{{foundStarship.length}} METERS</span></h3>
+            <h3>MAXIMUM ATMOSPHERING SPEED: <span class="textsecondary">{{foundStarship.max_atmosphering_speed}} KM/H</span></h3>
+            <h3>HYPERDRIVE RATING: <span class="textsecondary">{{foundStarship.hyperdrive_rating}}</span></h3>
+            <h3>MAXIMUM SPEED IN REALSPACE: <span class="textsecondary">{{foundStarship.MGLT}} MGLT</span></h3>
+        </div>
+    </div>
+</div>
