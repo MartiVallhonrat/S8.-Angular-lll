@@ -14,23 +14,23 @@ export class StarshipInfoComponent implements OnInit {
     private _starshipservice: StarshipsServiceService
   ){}
 
-  public starshipName: string = "";
+  public starshipName = this.route.snapshot.params["name"];
   public starshipIndex: any;
-  public foundStarship: any; 
+  public foundStarship: any;
+  public starshipImage: any;
 
 
   ngOnInit() {
-    this.starshipName = this.route.snapshot.params["name"];
 
     for(let i = 1; i <= 4; i++) {
-      const isStarship = (starship: any) => starship.name == this.starshipName
 
       this._starshipservice.getNewStarships(i)
         .subscribe((data) => {  
-          this.starshipIndex = data.results.findIndex(isStarship);
+          this.starshipIndex = data.results.findIndex((starship: any) => starship.name == this.starshipName);
           if(this.starshipIndex !== -1) {
             this.foundStarship = data.results[this.starshipIndex];
-          }
+            this.starshipImage = this._starshipservice.getImageFromStarship(data.results[this.starshipIndex].url);
+          };
         });
     }
   }

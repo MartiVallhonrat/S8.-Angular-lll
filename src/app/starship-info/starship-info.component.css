@@ -20,3 +20,16 @@
 .textsecondary {
     color: #ffffff81;
 }
+.image-container {
+    max-width: 100%;
+    min-width: 50%;
+    height: auto;
+    text-align: center;
+    padding: 10px;
+}
+.image-container img {
+  max-width: 100%;
+  min-width: 50%;
+  height: auto;
+  border: 1px solid rgb(14, 65, 233);
+}

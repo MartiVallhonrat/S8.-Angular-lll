@@ -1,5 +1,8 @@
 <div class="container">
     <h1 class="containertext text-center"><strong>{{foundStarship.name.toUpperCase()}}</strong></h1>
+    <div class="image-container">
+        <img [src]="starshipImage" alt="{{foundStarship.name}} Image">
+    </div>
     <div class="containertext text-center">
         <h3>MODEL: <span class="textsecondary">{{foundStarship.model.toUpperCase()}}</span></h3>
         <h3>STARSHIP CLASS: <span class="textsecondary">{{foundStarship.starship_class.toUpperCase()}}</span></h3>
