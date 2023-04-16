@@ -5,7 +5,57 @@
 .navbar-brand img {
     width: 80px;
 }
+.loginBtn {
+    visibility: collapse;
+}
+.userInterface {
+    visibility: collapse;
+}
+.navbar-brand img {
+    min-width: 100%;
+    align-self: center;
+}
+.container-login {
+    justify-content: space-between;
+    min-width: 100%;
+    align-items: center;
+}
 @media screen and (min-width: 768px) {
+    .loginBtn {
+        visibility: visible;
+        position: absolute;
+        right: 30px;
+        top: 140px;
+    }
+    .container-login {
+        justify-content: center;
+        position: relative;
+        min-width: 100%;
+        align-items: center;
+    }
+    .userInterface {
+        visibility: visible;
+        position: absolute;
+        right: 30px;
+        top: 20%;
+        max-width: min-content;
+        min-width: min-content;
+        border: 3px solid white;
+        border-radius: 10px;
+        background-color: black;
+
+    }
+    .imgcontainer {
+        text-align: center;
+        margin: 5px 0 5px 0;
+    }
+    img.avatar {
+        width: 40%;
+    }
+    .container {
+        color: white;
+        padding: 5px;
+    }
     .navbar-brand img {
       width: 300px;
     }

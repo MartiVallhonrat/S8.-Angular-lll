@@ -1,11 +1,27 @@
 <nav class="navbar navbar-expand-md navbar-dark" style="background-color:#000000">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/home">
-      <img src="../assets/images/starwarslogo.png" alt="">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div class="container-login d-flex">
+      <a class="navbar-brand" routerLink="/home">
+        <img src="../assets/images/starwarslogo.jpg" alt="">
+      </a>
+      <div class="loginBtn" *ngIf="currentUser == null">
+        <button class="btn text-white bg-black btn-outline-light" (click)="goToPage('login-signup')">LOGIN // SIGNUP</button>
+      </div>
+      <div class="userInterface" *ngIf="currentUser !== null">
+        <div class="imgcontainer">
+          <img src="../../assets/images/profileyoda.png" alt="Avatar" class="avatar">
+        </div>
+        <div class="container">
+          <div><strong>email: </strong><span>{{currentUser.email}}</span></div>
+        </div>
+        <div class="mx-1 mb-1">
+          <button class="w-100 btn text-white bg-black btn-outline-light" (click)="Logout()">LOGOUT</button>
+        </div>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item" routerLinkActive="active">
