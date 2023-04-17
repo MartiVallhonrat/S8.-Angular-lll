@@ -43,7 +43,9 @@ export class LoginSignupComponent  implements OnInit{
       this.UserList.push(new UserClass(userForm.value.email, userForm.value.password));
       this._userservice.setUserList(this.UserList);
 
-      userForm.resetForm();
+      const isUserExist = this.UserList.find(user => user.email == userForm.value.email && user.password == userForm.value.password);
+      this._userservice.setCurrentUser(userForm.value);
+      window.location.replace("home")
     }
     if(this.isLoginMode){
       const isUserExist = this.UserList.find(user => user.email == userForm.value.email && user.password == userForm.value.password);

@@ -26,4 +26,8 @@ export class UsersServiceService {
   setCurrentUser(newCurrentUser: User | null) {
     localStorage.setItem("currentUser",JSON.stringify(newCurrentUser));
   }
+  loggedIn() {
+    console.log(localStorage.getItem("currentUser"))
+    return localStorage.getItem("currentUser");
+  }
 }

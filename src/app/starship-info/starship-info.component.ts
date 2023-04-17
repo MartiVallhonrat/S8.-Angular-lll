@@ -18,6 +18,7 @@ export class StarshipInfoComponent implements OnInit {
   public starshipIndex: any;
   public foundStarship: any;
   public starshipImage: any;
+  public altImage: string = "../../assets/images/big-placeholder.jpg";
 
 
   ngOnInit() {

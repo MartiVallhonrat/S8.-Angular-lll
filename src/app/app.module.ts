@@ -4,17 +4,21 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
-import { StarshipsComponent } from './starships/starships.component';
-import { RouterModule, Routes } from '@angular/router';
+
+import { Router, RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { StarshipInfoComponent } from './starship-info/starship-info.component';
 import { LoginSignupComponent } from './login-signup/login-signup.component';
+import { AuthGuard } from './auth.guard';
+
+const starshipsModule = () => import("./starships/starships.module").then(x => x.StarshipsModule);
+const starshipsInfoModule = () => import("./starship-info/starships-info.module").then(x => x.StarshipsInfoModule);
+
 
 const appRoutes: Routes = [
   {path: "", redirectTo: '/home', pathMatch: 'full'},
   {path: "home", component: HomeComponent},
-  {path: "starships", component: StarshipsComponent},
-  {path: "starship-info/:name", component: StarshipInfoComponent},
+  {path: "starships", loadChildren: starshipsModule, canActivate: [AuthGuard]},
+  {path: "starship-info/:name", loadChildren: starshipsInfoModule, canActivate: [AuthGuard]},
   {path: "login-signup", component: LoginSignupComponent}
 ];
 
@@ -22,8 +26,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    StarshipsComponent,
-    StarshipInfoComponent,
     LoginSignupComponent,
   ],
   imports: [
@@ -33,7 +35,10 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  exports: [
+    RouterModule
+  ],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

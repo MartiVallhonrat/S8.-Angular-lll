@@ -1,15 +1,15 @@
 <div class="container">
     <h1 class="containertext text-center"><strong>{{starshipName.toUpperCase()}}</strong></h1>
     <div class="image-container">
-        <img [src]="starshipImage" alt="{{starshipName}} Image">
+        <img title="starship" [src]="starshipImage" [appImgFallback]="altImage">
     </div>
-    <div class="containertext text-center">
+    <div *ngIf="foundStarship != undefined" class="containertext text-center">
         <h3>MODEL: <span class="textsecondary">{{foundStarship.model.toUpperCase()}}</span></h3>
         <h3>STARSHIP CLASS: <span class="textsecondary">{{foundStarship.starship_class.toUpperCase()}}</span></h3>
         <h3>MANUFACTURER: <span class="textsecondary">{{foundStarship.manufacturer.toUpperCase()}}</span></h3>
         <h3>COST: <span class="textsecondary">{{foundStarship.cost_in_credits.toUpperCase()}}</span></h3>
     </div>
-    <div class="d-flex justify-content-center gap-2">
+    <div *ngIf="foundStarship != undefined" class="d-flex justify-content-center gap-2">
         <div class="containertext flex-grow-1">
             <h3>CREW: <span class="textsecondary">{{foundStarship.crew}}</span></h3>
             <h3>PASSANGER CAPACITY: <span class="textsecondary">{{foundStarship.passengers}}</span></h3>
