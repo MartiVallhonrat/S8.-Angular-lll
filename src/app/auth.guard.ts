@@ -11,7 +11,7 @@ export class AuthGuard implements CanActivate {
               private _router: Router){}
 
   canActivate(): boolean{
-    if(this._userService.loggedIn() == "null"){
+    if(this._userService.loggedIn() == "null" || this._userService.loggedIn() == undefined){
       this._router.navigate(["login-signup"])
       return false;
     } else {
